@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stock Market</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body class="bg-dark">
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+    <a class="navbar-brand mx-auto" href="#"><i class="fa fa-money" aria-hidden="true"></i> Stock Market Calc</a>
+    </div>
+    </nav>
+
+    <div class="container">
+    <br>
+
+    <div class="row">
+        <div class="col-6 mx-auto text-center">
+          <form>
+          <input type="number" id="buyValue" class="form-control p-3 m-3" placeholder="Enter the Stock buy price ₹₹₹ here...">
+          <input type="number" id="marginAmt" class="form-control p-3 m-3" placeholder="Enter Your Margin ₹₹₹ here...">
+          <button type="button" class="btn btn-outline-secondary" onclick="stock()">Submit</button>
+          <button type="reset" class="btn btn-outline-secondary ml-1">Reset</button>
+          <form>
+        </div>
+
+        <div class="col-6">
+
+          <div class="card m-3">
+            <h4 class="card-header">Output</h4>
+            <div class="card-body">
+              <h4><span class="badge badge-success">Buy@</span> <span id=buyAt>...</span></h4>
+              <h4><span class="badge badge-danger">Stop-Loss</span> <span id=stopLoss>...</span></h4>
+              <h4><span class="badge badge-warning">Target</span> <span id=target>...</span></h4>
+              <h4><span class="badge badge-info">x20</span> <span id=multiplier>...</span></h4>
+            </div>
+          </div>
+
+        </div>
+    </div>
+
+
+    <footer class="text-white">
+      <hr>
+      <p>&copy; Developed by Jana, 2017</p>
+    </footer>
+    </div><!-- /.container -->
+<script>
+
+function stock(){
+  var buyValue = parseFloat(document.getElementById('buyValue').value);
+  var marginAmt = parseFloat(document.getElementById('marginAmt').value);
+  document.getElementById('buyAt').innerHTML = '&#8377;' + buyValue;
+  var stopLoss = buyValue-((buyValue/100)*0.3);
+  document.getElementById('stopLoss').innerHTML = '&#8377;' + stopLoss;
+  var target = ((buyValue/100)*0.3)+buyValue;
+  document.getElementById('target').innerHTML = '&#8377;' + target;
+  var multiplier = marginAmt*20;
+  document.getElementById('multiplier').innerHTML = '&#8377;' + multiplier;
+};
+
+</script>
+  </body>
+</html>
