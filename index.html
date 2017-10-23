@@ -29,19 +29,19 @@
           <input type="number" id="buyValue" class="form-control p-3 m-3" placeholder="Enter the Stock buy price ₹₹₹ here...">
           <input type="number" id="marginAmt" class="form-control p-3 m-3" placeholder="Enter Your Margin ₹₹₹ here...">
           <button type="button" class="btn btn-outline-secondary" onclick="stock()">Submit</button>
-          <button type="reset" class="btn btn-outline-secondary ml-1">Reset</button>
+          <button type="reset" class="btn btn-outline-secondary ml-1" onclick="fileClear()">Reset</button>
           <form>
         </div>
 
-        <div class="col-6">
-
+        <div class="col-6 mx-auto">
           <div class="card m-3">
-            <h4 class="card-header">Output</h4>
+            <h4 class="card-header">Result</h4>
             <div class="card-body">
-              <h4><span class="badge badge-success">Buy@</span> <span id=buyAt>...</span></h4>
-              <h4><span class="badge badge-danger">Stop-Loss</span> <span id=stopLoss>...</span></h4>
-              <h4><span class="badge badge-warning">Target</span> <span id=target>...</span></h4>
-              <h4><span class="badge badge-info">x20</span> <span id=multiplier>...</span></h4>
+              <h4><span class="badge badge-success">Buy At</span> <span id=buyAt>...</span></h4>
+              <h4><span class="badge badge-danger">Your Stop-Loss</span> <span id=stopLoss>...</span></h4>
+              <h4><span class="badge badge-warning">Your Target</span> <span id=target>...</span></h4>
+              <h4><span class="badge badge-info">Margin x20</span> <span id=multiplier>...</span></h4>
+              <h4><span class="badge badge-dark">You Can buy</span> <span id=canBuy>...</span></h4>
             </div>
           </div>
 
@@ -66,7 +66,17 @@ function stock(){
   document.getElementById('target').innerHTML = '&#8377;' + target;
   var multiplier = marginAmt*20;
   document.getElementById('multiplier').innerHTML = '&#8377;' + multiplier;
+  var canBuy = multiplier/buyValue;
+  document.getElementById('canBuy').innerHTML = parseInt(canBuy) + ' Approx Stocks' ;
 };
+
+function fileClear(){
+  document.getElementById('buyAt').innerHTML = '...';
+  document.getElementById('stopLoss').innerHTML = '...';
+  document.getElementById('target').innerHTML = '...';
+  document.getElementById('multiplier').innerHTML = '...';
+  document.getElementById('canBuy').innerHTML = '...';
+}
 
 </script>
   </body>
