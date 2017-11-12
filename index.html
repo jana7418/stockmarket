@@ -38,11 +38,12 @@
             <h4 class="card-header">Result</h4>
             <div class="card-body">
               <h4><span class="badge badge-success">Buy At</span> <span id=buyAt>...</span></h4>
-              <h4><span class="badge badge-danger">Your Stop-Loss</span> <span id=stopLoss>...</span></h4>
-              <h4><span class="badge badge-warning">Your Target</span> <span id=target>...</span></h4>
-              <h4><span class="badge badge-info">Margin x20</span> <span id=multiplier>...</span></h4>
-              <h4><span class="badge badge-dark">You Can buy</span> <span id=canBuy>...</span></h4>
-            </div>
+              <h4><span class="badge badge-danger">Stop-Loss</span> <span id=stopLoss>...</span></h4>
+              <h4><span class="badge badge-warning">Target</span> <span id=target>...</span></h4>
+              <h4><span class="badge badge-info">Total Margin</span> <span id=multiplier>...</span></h4>
+              <h4><span class="badge badge-dark">Total Stocks</span> <span id=canBuy>...</span></h4>
+              <h4><span class="badge badge-primary">Absolute Difference</span> <span id=difference>...</span></h4>
+             </div>
           </div>
 
         </div>
@@ -69,6 +70,9 @@ function stock(){
   document.getElementById('multiplier').innerHTML = '&#8377;' + multiplier;
   var canBuy = multiplier/buyValue;
   document.getElementById('canBuy').innerHTML = parseInt(canBuy) + ' Approx Stocks' ;
+  var difference = target-buyValue;
+  document.getElementById('difference').innerHTML = '&#8377;' + parseFloat(difference).toFixed(2);
+
 };
 
 function fileClear(){
