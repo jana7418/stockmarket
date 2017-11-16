@@ -43,7 +43,8 @@
               <h4><span class="badge badge-info">Total Margin</span> <span id=multiplier>...</span></h4>
               <h4><span class="badge badge-dark">You can buy</span> <span id=canBuy>...</span></h4>
               <h4><span class="badge badge-primary">Absolute Difference</span> <span id=difference>...</span></h4>
-             </div>
+              <h4><span class="badge badge-primary">Profit/Loss</span> <span id=profitLoss>...</span></h4>
+            </div>
           </div>
 
         </div>
@@ -72,6 +73,9 @@ function stock(){
   document.getElementById('canBuy').innerHTML = parseInt(canBuy) + ' Approx Stocks' ;
   var difference = target-buyValue;
   document.getElementById('difference').innerHTML = '&#8377;' + parseFloat(difference).toFixed(2);
+  var profitLoss = parseFloat(difference).toFixed(2)*difference;
+  document.getElementById('profitLoss').innerHTML = '&#8377;' + profitLoss;
+
 
 };
 
@@ -82,6 +86,7 @@ function fileClear(){
   document.getElementById('multiplier').innerHTML = '...';
   document.getElementById('canBuy').innerHTML = '...';
   document.getElementById('difference').innerHTML = '...';
+  document.getElementById('profitLoss').innerHTML = '...';
 }
 
 </script>
