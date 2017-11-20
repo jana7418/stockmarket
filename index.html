@@ -73,8 +73,8 @@ function stock(){
   document.getElementById('canBuy').innerHTML = parseInt(canBuy) + ' Approx Stocks' ;
   var difference = target-buyValue;
   document.getElementById('difference').innerHTML = '&#8377;' + parseFloat(difference).toFixed(2);
-  var profitLoss = parseFloat(difference).toFixed(2)*difference;
-  document.getElementById('profitLoss').innerHTML = '&#8377;' + profitLoss;
+  var profitLoss = (parseFloat(difference).toFixed(2))*canBuy;
+  document.getElementById('profitLoss').innerHTML = '&#8377; &plusmn;' + profitLoss;
 
 
 };
